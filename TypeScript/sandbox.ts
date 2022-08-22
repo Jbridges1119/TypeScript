@@ -22,3 +22,17 @@ mySelf.name = 'Jeff Bridges'
 
 // mySelf.age = '36'
 // mySelf.knowledge = ['Bowhunting skills', 'Computer Hacking Skills']
+
+//Define variable with explicit types
+let character: string;
+let age: number;
+let isLoggedIn: boolean;
+
+//Define array of strings - doesn't initialize as an empty array without `= []`
+let Jeff: string[] = []
+
+//Union Type
+let mix: (string|number|boolean)[] = []
+
+//Object Type
+let obj: object = {}
