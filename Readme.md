@@ -20,10 +20,13 @@ Will assume based on inputs and give corresponding errors.
  - Object values become typed, cannot change from number to string.
  - Can't add additional key/value properties to already defined object.
  - Object can be re-declared but has to have the EXACT same structure. 
-   - e.g. let obj: object = {}
+   - e.g. let obj: object = {} or let definedObj: {name: string, age: number}
 #### TS Array
  - Add `[]` without a space to the end to create type array
    - E.G. let arr: string[] = [];
 #### TS Mix
  - Use | (pipe) to seperate. Wrap multiple in round brackets when followed by `[]`
-    - E.G. let mixed: (number|string|boolean)[] = [] or let mixed: number|string|boolean = ''  
+    - E.G. let mixed: (number|string|boolean)[] = [] or let mixed: number|string|boolean = '' 
+#### TS Any Type
+ - Shouldn't use, can cause issues and defeats TS purpose.
+  - e.g. let age: any = anything

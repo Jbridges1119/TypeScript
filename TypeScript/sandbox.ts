@@ -17,8 +17,8 @@ let mySelf = {
   age: 36,
 };
 
-mySelf.age = 37
-mySelf.name = 'Jeff Bridges'
+mySelf.age = 37;
+mySelf.name = "Jeff Bridges";
 
 // mySelf.age = '36'
 // mySelf.knowledge = ['Bowhunting skills', 'Computer Hacking Skills']
@@ -29,10 +29,14 @@ let age: number;
 let isLoggedIn: boolean;
 
 //Define array of strings - doesn't initialize as an empty array without `= []`
-let Jeff: string[] = []
+let Jeff: string[] = [];
 
 //Union Type
-let mix: (string|number|boolean)[] = []
+let mix: (string | number | boolean)[] = [];
 
 //Object Type
-let obj: object = {}
+let obj: object = {};
+let definedObj: {name: string, age: number}
+
+//Any type
+let house: any = 25;
