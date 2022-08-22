@@ -47,17 +47,49 @@ let greet: Function;
 //greet = 'hello';
 
 greet = () => {
-  console.log('hello, again');
-}
+  console.log("hello, again");
+};
 
 //returns nothing or void
-const add = (a: number, b:number, c?: number | string): void => {
-  console.log(a+b)
-}
+const add = (a: number, b: number, c?: number | string): void => {
+  console.log(a + b);
+};
 
-add(5,4)
+add(5, 4);
 
 //returns a number
 const minus = (a: number, b: number): number => {
-  return a+ b
+  return a + b;
+};
+
+//declare types
+type StringOrNumber = string | number;
+type objWithName = { name: string; uid: StringOrNumber };
+
+const logDetails = (uid: StringOrNumber, item: string) => {
+  console.log(`${item} has a uid of ${uid}`);
+};
+
+const greeting = (user: objWithName) => {
+  console.log(`${user.name} says hello`);
+};
+
+//return void function
+// () => void
+
+//2 parameters (can be anything not just a and b) that returns void
+let greet1: (a: string, b: string) => void;
+//2 parameters that return void
+greet1 = (name: string, greeting: string) => {
+  console.log(`${name} says ${greeting}`);
+}
+
+let calc: (a:number, b:number, c:string) => number;
+//else must be there or we wouldn't return a number
+calc = (numOne: number, numTwo: number, action: string) => {
+  if (action === 'add') {
+    return numOne + numTwo
+  }else {
+    return numOne - numTwo;
+  }
 }
