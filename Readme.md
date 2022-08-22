@@ -13,24 +13,31 @@ Will assume based on inputs and give corresponding errors.
  - the -w means that ts will watch that file and compile automatically.
  #### TS Assumes
   - TS will assume restrictions based on original array composition.
-     - E.G. An array of strings and numbers can only have strings and numbers in it.  
+     - eg. An array of strings and numbers can only have strings and numbers in it.  
  - Also, variables cannot change type.
-     - E.G. A variable with an array cannot be changed to anything but an array. Kinda like const.
+     - eg. A variable with an array cannot be changed to anything but an array. Kinda like const.
 #### TS Objects
  - Object values become typed, cannot change from number to string.
  - Can't add additional key/value properties to already defined object.
  - Object can be re-declared but has to have the EXACT same structure. 
-   - e.g. let obj: object = {} or let definedObj: {name: string, age: number}
+   - eg. let obj: object = {} or let definedObj: {name: string, age: number}
 #### TS Array
  - Add `[]` without a space to the end to create type array
-   - E.G. let arr: string[] = [];
+   - eg. let arr: string[] = [];
 #### TS Mix
  - Use | (pipe) to seperate. Wrap multiple in round brackets when followed by `[]`
-    - E.G. let mixed: (number|string|boolean)[] = [] or let mixed: number|string|boolean = '' 
+    - eg. let mixed: (number|string|boolean)[] = [] or let mixed: number|string|boolean = '' 
 #### TS Any Type
  - Shouldn't use, can cause issues and defeats TS purpose.
-  - e.g. let age: any = anything
-
+  - eg. let age: any = anything
+#### TS Functions
+ - Declare type with `Function`. Capital F
+ - Params should be type declared just like other times.
+ - Optional params use `?` before `:`, also put them at the end, after required params.
+    - eg. const add = (a: number, b:number, c?: number | string) => {}
+ - Default params (c: number = 10) works the same as js.
+ - We can declare the output type of a function. If there is no output (i.e. undefined) than it is `void`
+    - eg. const add = (a: number, b:number, c?: number | string): void => {}
 
 ### Layout and tsconfig 
  - Start by tsc --init to create a tsconfig file

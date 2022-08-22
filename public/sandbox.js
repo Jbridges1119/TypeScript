@@ -14,13 +14,13 @@ let mySelf = {
 };
 mySelf.age = 37;
 mySelf.name = "Jeff Bridges";
-// mySelf.age = '36'
-// mySelf.knowledge = ['Bowhunting skills', 'Computer Hacking Skills']
+// mySelf.age = '36';
+// mySelf.knowledge = ['Bowhunting skills', 'Computer Hacking Skills'];
 //Define variable with explicit types
 let gamerHandle;
 let age;
 let isLoggedIn;
-//Define array of strings - doesn't initialize as an empty array without `= []`
+//Define array of strings - doesn't initialize as an empty array without `= []`;
 let Jeff = [];
 //Union Type
 let mix = [];
@@ -29,3 +29,18 @@ let obj = {};
 let definedObj;
 //Any type
 let house = 25;
+//Functions
+let greet;
+//greet = 'hello';
+greet = () => {
+    console.log('hello, again');
+};
+//returns nothing or void
+const add = (a, b, c) => {
+    console.log(a + b);
+};
+add(5, 4);
+//returns a number
+const minus = (a, b) => {
+    return a + b;
+};
