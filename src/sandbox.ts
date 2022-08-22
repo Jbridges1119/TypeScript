@@ -24,7 +24,7 @@ mySelf.name = "Jeff Bridges";
 // mySelf.knowledge = ['Bowhunting skills', 'Computer Hacking Skills']
 
 //Define variable with explicit types
-let character: string;
+let gamerHandle: string;
 let age: number;
 let isLoggedIn: boolean;
 

@@ -30,3 +30,12 @@ Will assume based on inputs and give corresponding errors.
 #### TS Any Type
  - Shouldn't use, can cause issues and defeats TS purpose.
   - e.g. let age: any = anything
+
+
+### Layout and tsconfig 
+ - Start by tsc --init to create a tsconfig file
+ - Find `rootDir` and set location for source files. eg. `./src`
+ - Find `outDir` and set location for compiled files. eg. `./public`
+ - `tsc` will compile and `tsc -w` will watch and compile.
+ - add `"include": ["src"]` after the first object within tsconfig to set compiler to only work within that folder. "" must be double quotes. dont forget to , the first object.
+      - rootDir is just specifiing which files compile to public. "include" will stop it from looking outside a folder.
