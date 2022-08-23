@@ -57,7 +57,23 @@ I will be writing notes within this readme file to refer to in future projects.
  - Designate types for constructor variables first
  - And constructor params require type designations too
  - If a class instance is placed into an array, the array needs to be typed to the Class name.
-    - eg. let folder: Invoice[] = []  - where Invoice is the class and now it's instances can be placed into folder.
+    - eg. let folder: Invoice[] = []  ~ where Invoice is the class and now it's instances can be placed into folder.
+ - TS adds access modifiers ~ `public, private, and readonly` ~ Defaults public
+   - eg. private client: string;
+ - The private variable can be accessed within the Class for getters/setters ect.
+ - The readonly cannot be changed inside or outside of class.
+ #### TS Interfaces
+  - Similar to type ~ is a template for a type to be added to a variable. 
+  - Must contain the interface types but can have more than.
+    - eg. const me: IsPerson = {...}
+  - Can be used as to Type a param so only an interfaced variable can be used.
+    - eg. const greetPerson = (person: IsPerson) => {} ~ greetPerson(me)
+#### TS Importing Exporting
+ - tsconfig ~ module: "es6" instead of commonjs
+ - The HTML needs to have type module within the script
+    - eg. <script type="module" src='app.js'></script>
+ - Make sure to import the JS file NOT THE TS FILE
+   - eg. import {invoice} from './invoice.js'
 ### Layout and tsconfig 
  - Start by tsc --init to create a tsconfig file
  - Find `rootDir` and set location for source files. eg. `./src`
