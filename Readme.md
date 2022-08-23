@@ -1,5 +1,6 @@
 # Learning TypeScript
 This is a project I'm creating to teach myself TypeScript.
+[Docs](https://www.typescriptlang.org/docs/)
 ## Notes
 I will be writing notes within this readme file to refer to in future projects.
 ### Basics
@@ -7,10 +8,14 @@ I will be writing notes within this readme file to refer to in future projects.
  - Use stricter types - prevents errors.
  - Has extra features that JS doesn't.
  - Will Infer based on inputs and give corresponding errors.
-#### Within terminal - tsc <filename> -w
+ - Can ignore with ! at end
+    -eg. const duck = document.querySelector('duck')!;
+#### Within terminal 
+ - tsc <filename> -w
  - will create a compiled js file with the same name.
  - if both files are open at the same time the variables in ts file will error - just close the js file to fix.
  - the -w means that ts will watch that file and compile automatically.
+ - `tsc -w` after setup will watch designated folders
  #### TS Infers
   - TS will Infer restrictions based on original array composition.
      - eg. An array of strings and numbers can only have strings and numbers in it.  
@@ -43,6 +48,16 @@ I will be writing notes within this readme file to refer to in future projects.
    - eg. type StringOrNum = string | number; 
  - Can also declare and opject with keys and type specifacations
    - eg. type objWithName = { name: string, uid: StringOrNum};
+#### TS Forms and Eventlisteners
+ - Doc.querySelector defaults as an element
+    - Can add as HTMLFormElement to the end 
+ - Declare the (e: Event) for e.preventDefault
+
+#### TS Classes
+ - Designate types for constructor variables first
+ - And constructor params require type designations too
+ - If a class instance is placed into an array, the array needs to be typed to the Class name.
+    - eg. let folder: Invoice[] = []  - where Invoice is the class and now it's instances can be placed into folder.
 ### Layout and tsconfig 
  - Start by tsc --init to create a tsconfig file
  - Find `rootDir` and set location for source files. eg. `./src`
