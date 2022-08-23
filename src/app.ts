@@ -1,19 +1,42 @@
-//classes
-class Invoice {
-  client: string;
-  details: string;
-  amount: number;
 
-  constructor(c: string, d: string, a: number) {
-    this.client = c;
-    this.details = d;
-    this.amount = a;
-  }
+import {Invoice} from './classes/Invoice.js'
 
-  format() {
-    return `${this.client} owes $${this.amount} for ${this.details}`;
+//interfaces ~ If we have a variable in the future called IsPerson it much have these properties
+interface IsPerson {
+  name: string;
+  age: number;
+  speak(a: string): void;
+  spend(a: number): number;
+}
+const me: IsPerson = {
+  name: 'Jeff',
+  age: 36,
+  speak(text: string): void {
+    console.log(text)
+  },
+  spend(amount:number): number {
+    console.log('I spent', amount)
+    return amount
   }
 }
+console.log(me);
+
+//this functions requires a variable that is setup with IsPerson
+const greetPerson = (person: IsPerson) => {
+  console.log('hello', person.name)
+}
+
+greetPerson(me)
+
+
+
+
+
+
+
+
+
+
 
 const invOne = new Invoice("Jeff", "made this class instance", 1000);
 const invTwo = new Invoice("Winston", "made this class instance", 10);
@@ -24,10 +47,13 @@ let invoices: Invoice[] = []
 invoices.push(invOne)
 invoices.push(invTwo)
 
-invOne.client = 'Jeff B'
+// invOne.client = 'Jeff B'
 invTwo.amount = 5
 
-console.log(invoices);
+invoices.forEach(inv => {
+  console.log(inv.client, inv.amount, inv.format());
+})
+
 
 // const anchor = document.querySelector('a');
 // if(anchor){

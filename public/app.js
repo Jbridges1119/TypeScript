@@ -1,15 +1,21 @@
-"use strict";
-//classes
-class Invoice {
-    constructor(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+import { Invoice } from './classes/Invoice.js';
+const me = {
+    name: 'Jeff',
+    age: 36,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('I spent', amount);
+        return amount;
     }
-    format() {
-        return `${this.client} owes $${this.amount} for ${this.details}`;
-    }
-}
+};
+console.log(me);
+//this functions requires a variable that is setup with IsPerson
+const greetPerson = (person) => {
+    console.log('hello', person.name);
+};
+greetPerson(me);
 const invOne = new Invoice("Jeff", "made this class instance", 1000);
 const invTwo = new Invoice("Winston", "made this class instance", 10);
 console.log(invOne, invTwo);
@@ -17,9 +23,11 @@ console.log(invOne, invTwo);
 let invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
-invOne.client = 'Jeff B';
+// invOne.client = 'Jeff B'
 invTwo.amount = 5;
-console.log(invoices);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format());
+});
 // const anchor = document.querySelector('a');
 // if(anchor){
 // console.log(anchor.href);
