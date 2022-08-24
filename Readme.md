@@ -98,3 +98,5 @@ I will be writing notes within this readme file to refer to in future projects.
  - `tsc` will compile and `tsc -w` will watch and compile.
  - add `"include": ["src"]` after the first object within tsconfig to set compiler to only work within that folder. "" must be double quotes. dont forget to , the first object.
       - `rootDir` is just specifiing which files compile to public. "include" will stop it from looking outside a folder.
+
+## Lecture Notes
