@@ -1,4 +1,5 @@
 import { Invoice } from './classes/Invoice.js';
+import { Payments } from './classes/Payments.js';
 const me = {
     name: 'Jeff',
     age: 36,
@@ -16,6 +17,15 @@ const greetPerson = (person) => {
     console.log('hello', person.name);
 };
 greetPerson(me);
+//declares that docOne/Two must have HasFormatter interface - which they do
+let docOne;
+let docTwo;
+docOne = new Invoice('Winston', 'slept', 5);
+docTwo = new Payments('Jeff', 'Wrote this down', 50);
+//can be used in an array - only items with HasFormatter can be placed into the array
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
 const invOne = new Invoice("Jeff", "made this class instance", 1000);
 const invTwo = new Invoice("Winston", "made this class instance", 10);
 console.log(invOne, invTwo);
@@ -41,7 +51,12 @@ const amount = document.querySelector("#amount");
 //e is typed as an Event
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, 
-    //returns a number instead of a string
-    amount.valueAsNumber);
+    let doc;
+    if (type.value === 'bill') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });

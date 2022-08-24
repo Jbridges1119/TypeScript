@@ -1,5 +1,9 @@
 
 import {Invoice} from './classes/Invoice.js'
+import {Payments} from './classes/Payments.js'
+import {HasFormatter} from './interfaces/HasFormatter.js'
+
+
 
 //interfaces ~ If we have a variable in the future called IsPerson it much have these properties
 interface IsPerson {
@@ -29,10 +33,17 @@ const greetPerson = (person: IsPerson) => {
 greetPerson(me)
 
 
+//declares that docOne/Two must have HasFormatter interface - which they do
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
 
+docOne = new Invoice('Winston', 'slept', 5)
+docTwo = new Payments('Jeff', 'Wrote this down', 50)
 
-
-
+//can be used in an array - only items with HasFormatter can be placed into the array
+let docs:HasFormatter[] = []
+docs.push(docOne);
+docs.push(docTwo);
 
 
 
@@ -72,11 +83,12 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
-  console.log(
-    type.value,
-    tofrom.value,
-    details.value,
-    //returns a number instead of a string
-    amount.valueAsNumber
-  );
+  let doc: HasFormatter;
+  if(type.value === 'bill'){
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+  } else {
+    doc = new Payments(tofrom.value, details.value, amount.valueAsNumber)
+  }
+
+  console.log(doc);
 });

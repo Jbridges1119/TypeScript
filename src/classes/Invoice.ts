@@ -1,4 +1,19 @@
+import {HasFormatter} from '../interfaces/HasFormatter.js'
+
 //classes
+export class Invoice implements HasFormatter {
+  constructor(  
+    readonly client: string,
+    private details: string,
+    public amount: number
+  ){}
+  format() {
+    return `${this.client} owes $${this.amount} for ${this.details}`;
+  }
+}
+
+
+//long syntax example
 class Invoice2 {
   readonly client: string;
   private details: string;
@@ -14,13 +29,3 @@ class Invoice2 {
   }
 }
 //If we use access modifiers then we can just write the function like so.
-export class Invoice {
-  constructor(  
-    readonly client: string,
-    private details: string,
-    public amount: number
-  ){}
-  format() {
-    return `${this.client} owes $${this.amount} for ${this.details}`;
-  }
-}
