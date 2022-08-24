@@ -70,13 +70,21 @@ I will be writing notes within this readme file to refer to in future projects.
     - eg. const greetPerson = (person: IsPerson) => {} ~ greetPerson(me)
   - When used with a `class` it must have `implements` before it. like extends
     - eg. class Invoice `implements` HasFormatter {}
-### TS Generics
+#### TS Generics
   - Before the param of a first class function we add <T> and then type the param: T.
     - eg. const add UID = <T>(obj: T) => {}
   - This captures the specifics of the param type but we are not limiting the type so we add <T extends object> like sub/superclasses.
      - eg. const add UID = <T extend object>(obj: T) => {} 
   - Regarding Generic interfaces we can use <T> after the interface variable name and then when it's used we designate the required type.
     - eg. interface Test<T>{data:T}  ~ const testing: Test<number> = {data:5}
+#### TS ENUMS
+  - Allows premade custom types to be assigned to a variable and then assigned within a interface.
+  - This allows a selector like feature for constructing a class.
+    - eg. enum ResourseType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+#### TS Tuples
+  - Tuples allow us to declare the type withing an array position.
+    - eg. let tup: [string, number, boolean] = ['kelsey', 31, true];
+  - This also needs to be done if we want to use a speader(removes the brackets) for params.
 #### TS Importing Exporting
  - tsconfig ~ module: "es6" instead of commonjs
  - The HTML needs to have type module within the script

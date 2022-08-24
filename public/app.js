@@ -56,12 +56,16 @@ const list = new ListTemplates(ul);
 //e is typed as an Event
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    //Must be a tuples due to being used as a spreador within class creation
+    //Tuples
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'bill') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payments(...values);
     }
     list.render(doc, type.value, 'end');
 });
@@ -77,3 +81,28 @@ const docFour = {
     resourceName: 'Jeff',
     data: 'shawn'
 };
+//ENUMS - Allows type to be made into custom list
+var ResourseType;
+(function (ResourseType) {
+    ResourseType[ResourseType["BOOK"] = 0] = "BOOK";
+    ResourseType[ResourseType["AUTHOR"] = 1] = "AUTHOR";
+    ResourseType[ResourseType["FILM"] = 2] = "FILM";
+    ResourseType[ResourseType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourseType[ResourseType["PERSON"] = 4] = "PERSON";
+})(ResourseType || (ResourseType = {}));
+const docFive = {
+    uid: 1,
+    //can select any from ResourceType
+    resourceType: ResourseType.AUTHOR,
+    data: 'shawn'
+};
+//Tuples - like arrays but typed position is fixed once initialized
+//normal array
+let arr = ['Kelsey', 31, true];
+arr[0] = false;
+arr[1] = 'Jeff';
+//sets type of poistion in the array
+let tup = ['kelsey', 31, true];
+// tup[0] = false;
+// tup[1] = 'Jeff';
+tup[0] = 'Jeff';

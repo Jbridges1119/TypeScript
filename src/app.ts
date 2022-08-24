@@ -89,12 +89,16 @@ const list = new ListTemplates(ul)
 //e is typed as an Event
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
+  //Must be a tuples due to being used as a spreador within class creation
+  //Tuples
+   let values: [string, string, number]
+   values = [tofrom.value, details.value, amount.valueAsNumber]
 
   let doc: HasFormatter;
   if(type.value === 'bill'){
-    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+    doc = new Invoice(...values)
   } else {
-    doc = new Payments(tofrom.value, details.value, amount.valueAsNumber)
+    doc = new Payments(...values)
   }
 
   list.render(doc, type.value, 'end')
@@ -124,3 +128,35 @@ const docFour: Resourse<string> = {
   resourceName: 'Jeff',
   data:'shawn'
 }
+
+
+//ENUMS - Allows type to be made into custom list
+enum ResourseType {
+  BOOK, AUTHOR, FILM, DIRECTOR, PERSON
+}
+interface Resourse1<T> {
+  uid: number;
+  resourceType: ResourseType;
+  //this makes data generic
+  data: T;
+}
+
+const docFive: Resourse1<string> = {
+  uid: 1,
+  //can select any from ResourceType
+  resourceType: ResourseType.AUTHOR,
+  data:'shawn'
+}
+
+
+//Tuples - like arrays but typed position is fixed once initialized
+//normal array
+let arr = ['Kelsey', 31, true];
+arr[0] = false;
+arr[1] = 'Jeff';
+
+//sets type of poistion in the array
+let tup: [string, number, boolean] = ['kelsey', 31, true];
+// tup[0] = false;
+// tup[1] = 'Jeff';
+tup[0] = 'Jeff'
