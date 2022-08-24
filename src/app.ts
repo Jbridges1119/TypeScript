@@ -1,9 +1,12 @@
 
 import {Invoice} from './classes/Invoice.js'
+import { ListTemplates } from './classes/ListTemplates.js';
 import {Payments} from './classes/Payments.js'
 import {HasFormatter} from './interfaces/HasFormatter.js'
 
 
+
+//START OF TESTING
 
 //interfaces ~ If we have a variable in the future called IsPerson it much have these properties
 interface IsPerson {
@@ -64,7 +67,7 @@ invTwo.amount = 5
 invoices.forEach(inv => {
   console.log(inv.client, inv.amount, inv.format());
 })
-
+//END OF TESTING
 
 // const anchor = document.querySelector('a');
 // if(anchor){
@@ -79,6 +82,10 @@ const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+//list the template instance 
+const ul = document.querySelector('ul')!
+const list = new ListTemplates(ul)
+
 //e is typed as an Event
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
@@ -90,5 +97,5 @@ form.addEventListener("submit", (e: Event) => {
     doc = new Payments(tofrom.value, details.value, amount.valueAsNumber)
   }
 
-  console.log(doc);
+  list.render(doc, type.value, 'end')
 });

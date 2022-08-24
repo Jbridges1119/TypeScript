@@ -1,4 +1,5 @@
 import { Invoice } from './classes/Invoice.js';
+import { ListTemplates } from './classes/ListTemplates.js';
 import { Payments } from './classes/Payments.js';
 const me = {
     name: 'Jeff',
@@ -38,6 +39,7 @@ invTwo.amount = 5;
 invoices.forEach(inv => {
     console.log(inv.client, inv.amount, inv.format());
 });
+//END OF TESTING
 // const anchor = document.querySelector('a');
 // if(anchor){
 // console.log(anchor.href);
@@ -48,6 +50,9 @@ const type = document.querySelector("#type");
 const tofrom = document.querySelector("#tofrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
+//list the template instance 
+const ul = document.querySelector('ul');
+const list = new ListTemplates(ul);
 //e is typed as an Event
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -58,5 +63,5 @@ form.addEventListener("submit", (e) => {
     else {
         doc = new Payments(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, 'end');
 });
