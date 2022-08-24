@@ -99,3 +99,28 @@ form.addEventListener("submit", (e: Event) => {
 
   list.render(doc, type.value, 'end')
 });
+
+
+//Generics
+const addUID = <T extends {name: string}>(obj: T) => {
+  let uid = Math.floor(Math.random() * 100);
+  return {...obj, uid};
+}
+
+let docThree = addUID({name: 'Winston', age:3});
+
+console.log(docThree.age);
+
+//Generics with interfaces
+interface Resourse<T> {
+  uid: number;
+  resourceName: string;
+  //this makes data generic
+  data: T;
+}
+
+const docFour: Resourse<string> = {
+  uid: 1,
+  resourceName: 'Jeff',
+  data:'shawn'
+}

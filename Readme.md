@@ -70,6 +70,13 @@ I will be writing notes within this readme file to refer to in future projects.
     - eg. const greetPerson = (person: IsPerson) => {} ~ greetPerson(me)
   - When used with a `class` it must have `implements` before it. like extends
     - eg. class Invoice `implements` HasFormatter {}
+### TS Generics
+  - Before the param of a first class function we add <T> and then type the param: T.
+    - eg. const add UID = <T>(obj: T) => {}
+  - This captures the specifics of the param type but we are not limiting the type so we add <T extends object> like sub/superclasses.
+     - eg. const add UID = <T extend object>(obj: T) => {} 
+  - Regarding Generic interfaces we can use <T> after the interface variable name and then when it's used we designate the required type.
+    - eg. interface Test<T>{data:T}  ~ const testing: Test<number> = {data:5}
 #### TS Importing Exporting
  - tsconfig ~ module: "es6" instead of commonjs
  - The HTML needs to have type module within the script
