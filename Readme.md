@@ -10,6 +10,7 @@ I will be writing notes within this readme file to refer to in future projects.
  - Will Infer based on inputs and give corresponding errors.
  - Can ignore with ! at end
     -eg. const duck = document.querySelector('duck')!;
+ - Or is | (single pipe)
 #### Within terminal 
  - tsc <filename> -w
  - will create a compiled js file with the same name.
@@ -63,13 +64,23 @@ I will be writing notes within this readme file to refer to in future projects.
  - The private variable can be accessed within the Class for getters/setters ect.
  - The readonly cannot be changed inside or outside of class.
  #### TS Interfaces
+  - Place `I` infront of interface name to notify it's a interface and not a class
   - Similar to type ~ is a template for a type to be added to a variable. 
+  - Declared interface typed value names don't need to match where it's invoked but probably should anyway.
+  - Method can be decalred by typing the params and output.
+     - eg. interface Actions {call: (personName: string) => string}
   - Must contain the interface types but can have more than.
     - eg. const me: IsPerson = {...}
   - Can be used as to Type a `function` param so only an interfaced variable can be used.
     - eg. const greetPerson = (person: IsPerson) => {} ~ greetPerson(me)
   - When used with a `class` it must have `implements` before it. like extends
     - eg. class Invoice `implements` HasFormatter {}
+  - can also use the `?:` for optional
+#### TS "type"
+  - Cannot be changed or extended 
+#### TS Promises
+  - If promise is being returned within a function then TS will be looking for the function output: Promise<Type>
+    - eg. const prom = (num: number): Promise<number> => { return new Promise((res)=>{res(num)})}
 #### TS Generics
   - Before the param of a first class function we add <T> and then type the param: T.
     - eg. const add UID = <T>(obj: T) => {}
@@ -85,7 +96,7 @@ I will be writing notes within this readme file to refer to in future projects.
   - Tuples allow us to declare the type withing an array position.
     - eg. let tup: [string, number, boolean] = ['kelsey', 31, true];
   - This also needs to be done if we want to use a speader(removes the brackets) for params.
-#### TS Importing Exporting
+#### TS Import/Export
  - tsconfig ~ module: "es6" instead of commonjs
  - The HTML needs to have type module within the script
     - eg. <script type="module" src='app.js'></script>
@@ -100,3 +111,4 @@ I will be writing notes within this readme file to refer to in future projects.
       - `rootDir` is just specifiing which files compile to public. "include" will stop it from looking outside a folder.
 
 ## Lecture Notes
+ - Add `--template typescript` to the end of create-react-app to start a react project with typescript
