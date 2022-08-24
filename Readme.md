@@ -66,8 +66,10 @@ I will be writing notes within this readme file to refer to in future projects.
   - Similar to type ~ is a template for a type to be added to a variable. 
   - Must contain the interface types but can have more than.
     - eg. const me: IsPerson = {...}
-  - Can be used as to Type a param so only an interfaced variable can be used.
+  - Can be used as to Type a `function` param so only an interfaced variable can be used.
     - eg. const greetPerson = (person: IsPerson) => {} ~ greetPerson(me)
+  - When used with a `class` it must have `implements` before it. like extends
+    - eg. class Invoice `implements` HasFormatter {}
 #### TS Importing Exporting
  - tsconfig ~ module: "es6" instead of commonjs
  - The HTML needs to have type module within the script
