@@ -1,6 +1,8 @@
 # Learning TypeScript
 This is a project I'm creating to teach myself TypeScript.
 [Docs](https://www.typescriptlang.org/docs/)
+Create React TS App
+`npx create-react-app my-app --template typescript`
 ## Notes
 I will be writing notes within this readme file to refer to in future projects.
 ### Basics
