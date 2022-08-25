@@ -114,3 +114,10 @@ I will be writing notes within this readme file to refer to in future projects.
 
 ## Lecture Notes
  - Add `--template typescript` to the end of create-react-app to start a react project with typescript
+
+## REACT TS
+ - If it's a functional component than we declare it by React.FC<props type>
+   - eg. const QuestionCard: React.FC<Props> = () => {}
+ - Don't need to declare .ts with regards to import.
+    - eg. import {shuffleArray} from './utils'
+ - Not specific to TS but you can user?.name to check instead of ternary operator
